@@ -1,4 +1,3 @@
-streamlit
 yfinance
 streamlit_date_picker
-csv
+
