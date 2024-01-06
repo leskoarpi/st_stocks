@@ -1,6 +1,5 @@
 import streamlit as st
 import yfinance as fn
-import streamlit_date_picker as dp
 import csv
 
 #using session state variables to initialize the dictionary
@@ -31,9 +30,9 @@ with st.sidebar:
     select_period = st.selectbox('select prefered time period',('1d','5d','1mo','3mo','6mo','1y','2y','5y','10y','ytd','max'))
     select_interval = st.selectbox('select prefered time interval',('1m', '2m', '5m', '15m', '30m', '60m', '90m', '1h', '1d', '5d', '1wk', '1mo', '3mo'))
     st.write('Select starting date')
-    start_date = dp.date_picker("start")
+    start_date = st.date_input(label='start')
     st.write('Select ending date')
-    end_date = dp.date_picker("end")
+    end_date = st.date_input(label='end')
     select_prepost = st.selectbox('Include Pre and Post regular market data in results?', (True, False))
     select_auto_adjust = st.selectbox('Adjust all OHLC (Open/High/Low/Close prices) automatically?', (True, False))
 
