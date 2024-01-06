@@ -36,13 +36,15 @@ with st.sidebar:
     end_date = dp.date_picker("end")
     select_prepost = st.selectbox('Include Pre and Post regular market data in results?', (True, False))
     select_auto_adjust = st.selectbox('Adjust all OHLC (Open/High/Low/Close prices) automatically?', (True, False))
-    st.button("Show me")
 
 
 #fetching data
     
 
+tab = st.empty()
 
-if st.button:
-    fetch = fn.download(tickers=selected_ticker, start=start_date, end=end_date, period=select_period, interval=select_interval, prepost=select_prepost, auto_adjust=select_auto_adjust)
-    st.line_chart(fetch.values)
+with st.sidebar:
+    if st.button("Show me"):
+        with tab:
+            fetch = fn.download(tickers=selected_ticker, start=start_date, end=end_date, period=select_period, interval=select_interval, prepost=select_prepost, auto_adjust=select_auto_adjust)
+            st.line_chart(fetch.values)
