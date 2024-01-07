@@ -40,13 +40,13 @@ with st.sidebar:
     
 
 tab = st.empty()
+tab_i = st.empty()
 
 with st.sidebar:
     if st.button("Show me"):
         with tab:
             fetch = fn.download(tickers=selected_ticker, start=start_date, end=end_date, period=select_period, interval=select_interval, prepost=select_prepost, auto_adjust=select_auto_adjust)
             
-            st.write(fetch)
-
-        with tab:
             st.line_chart(fetch.values)
+        with tab_i:
+            st.write(fetch.info)
