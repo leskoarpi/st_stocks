@@ -49,4 +49,4 @@ with st.sidebar:
             
             st.line_chart(fetch.values)
         with tab_i:
-            st.write(fetch.info)
+            st.write(fetch)
